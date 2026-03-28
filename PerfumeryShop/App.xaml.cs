@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PerfumeryShop.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,6 @@ namespace PerfumeryShop
     /// </summary>
     public partial class App : Application
     {
-
+        public static MagicFlaconDBEntities context = new MagicFlaconDBEntities();
     }
 }

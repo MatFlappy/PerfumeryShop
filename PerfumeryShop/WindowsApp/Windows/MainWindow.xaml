@@ -5,34 +5,147 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PerfumeryShop"
         mc:Ignorable="d"
-        Title="Магия флакона" Height="600" Width="900" WindowStartupLocation="CenterScreen">
-    <Grid Margin="10">
+       Title="Магия флакона"
+        Height="650"
+        Width="980"
+        WindowStartupLocation="CenterScreen"
+        Background="#FFF6F1">
+
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-            <TextBox x:Name="tbSearch" Width="200" Height="30" Margin="0,0,10,0" TextChanged="tbSearch_TextChanged"/>
-            <ComboBox x:Name="cbCategories" Width="200" Height="30" SelectionChanged="cbCategories_SelectionChanged"/>
-        </StackPanel>
+        <Border Background="White" CornerRadius="12" Padding="15" Margin="0,0,0,15">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
 
-        <DataGrid x:Name="dgProducts" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="200"/>
-                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="250"/>
-                <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="100"/>
-                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryName}" Width="150"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                <TextBox x:Name="tbSearch"
+                         Height="38"
+                         Margin="0,0,15,0"
+                         VerticalContentAlignment="Center"
+                         FontSize="14"
+                         TextChanged="tbSearch_TextChanged"/>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
-            <Button x:Name="btnFavorite" Content="В избранное" Width="120" Margin="5" Click="btnFavorite_Click"/>
-            <Button x:Name="btnRequest" Content="Оформить заявку" Width="140" Margin="5" Click="btnRequest_Click"/>
-            <Button x:Name="btnAddProduct" Content="Добавить товар" Width="130" Margin="5" Click="btnAddProduct_Click"/>
-            <Button x:Name="btnDeleteProduct" Content="Удалить товар" Width="130" Margin="5" Click="btnDeleteProduct_Click"/>
-            <Button x:Name="btnRequests" Content="Список заявок" Width="130" Margin="5" Click="btnRequests_Click"/>
-        </StackPanel>
+                <ComboBox x:Name="cbCategories"
+                          Grid.Column="1"
+                          Height="38"
+                          FontSize="14"
+                          SelectionChanged="cbCategories_SelectionChanged"/>
+
+                <TextBlock Grid.Column="2"
+                           Margin="15,0,0,0"
+                           VerticalAlignment="Center"
+                           FontSize="24"
+                           FontWeight="Bold"
+                           Foreground="#7A3E48"
+                           Text="Магия флакона"/>
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="lbProducts"
+                     BorderThickness="0"
+                     Background="Transparent"
+                     SelectionChanged="lbProducts_SelectionChanged"
+                     MouseDoubleClick="lbProducts_MouseDoubleClick"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     HorizontalContentAlignment="Stretch">
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Width" Value="290"/>
+                        <Setter Property="Height" Value="190"/>
+                        <Setter Property="Margin" Value="8"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent"/>
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White"
+                                BorderBrush="#E7D8D8"
+                                BorderThickness="1"
+                                CornerRadius="16"
+                                Padding="12">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Border Width="90"
+                                        Height="120"
+                                        CornerRadius="12"
+                                        Background="#FFF1F1"
+                                        ClipToBounds="True"
+                                        VerticalAlignment="Center">
+                                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill"/>
+                                </Border>
+
+                                <StackPanel Grid.Column="1" Margin="14,0,0,0" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Foreground="#2D1F23"
+                                               TextWrapping="Wrap"
+                                               Margin="0,0,0,8"/>
+
+                                    <TextBlock Text="{Binding Description}"
+                                               FontSize="13"
+                                               Foreground="#5C4B4F"
+                                               TextWrapping="Wrap"
+                                               MaxHeight="36"
+                                               Margin="0,0,0,8"/>
+
+                                    <Border Background="#FCE8E8" CornerRadius="8" Padding="8,4" Margin="0,0,0,6">
+                                        <TextBlock Text="{Binding Price, StringFormat=Цена: {0} руб.}"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#8B3A3A"/>
+                                    </Border>
+
+                                    <TextBlock Text="{Binding CategoryName, StringFormat=Категория: {0}}"
+                                               Foreground="#7D6A6E"
+                                               FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+        <Border Grid.Row="2" Background="White" CornerRadius="12" Padding="12" Margin="0,15,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="btnFavorite" Content="В избранное" Width="130" Height="36" Margin="5" Click="btnFavorite_Click"/>
+                <Button x:Name="btnOpenFavorites" Content="Мое избранное" Width="130" Height="36" Margin="5" Click="btnOpenFavorites_Click"/>
+                <Button x:Name="btnRequest" Content="Оформить заявку" Width="150" Height="36" Margin="5" Click="btnRequest_Click"/>
+                <Button x:Name="btnAddProduct" Content="Добавить товар" Width="135" Height="36" Margin="5" Click="btnAddProduct_Click"/>
+                <Button x:Name="btnDeleteProduct" Content="Удалить товар" Width="135" Height="36" Margin="5" Click="btnDeleteProduct_Click"/>
+                <Button x:Name="btnRequests" Content="Список заявок" Width="135" Height="36" Margin="5" Click="btnRequests_Click"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
