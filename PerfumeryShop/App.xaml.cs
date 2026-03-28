@@ -13,5 +13,6 @@ namespace PerfumeryShop
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

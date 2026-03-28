@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PerfumeryShop"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Магия флакона" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="tbSearch" Width="200" Height="30" Margin="0,0,10,0" TextChanged="tbSearch_TextChanged"/>
+            <ComboBox x:Name="cbCategories" Width="200" Height="30" SelectionChanged="cbCategories_SelectionChanged"/>
+        </StackPanel>
+
+        <DataGrid x:Name="dgProducts" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="250"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding Price}" Width="100"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding CategoryName}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+            <Button x:Name="btnFavorite" Content="В избранное" Width="120" Margin="5" Click="btnFavorite_Click"/>
+            <Button x:Name="btnRequest" Content="Оформить заявку" Width="140" Margin="5" Click="btnRequest_Click"/>
+            <Button x:Name="btnAddProduct" Content="Добавить товар" Width="130" Margin="5" Click="btnAddProduct_Click"/>
+            <Button x:Name="btnDeleteProduct" Content="Удалить товар" Width="130" Margin="5" Click="btnDeleteProduct_Click"/>
+            <Button x:Name="btnRequests" Content="Список заявок" Width="130" Margin="5" Click="btnRequests_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
