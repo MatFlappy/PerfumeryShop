@@ -19,6 +19,7 @@ namespace PerfumeryShop.Model
         public Nullable<int> ProductId { get; set; }
         public Nullable<System.DateTime> OrderDate { get; set; }
         public string Status { get; set; }
+        public string Comment { get; set; }
     
         public virtual Products Products { get; set; }
         public virtual Users Users { get; set; }

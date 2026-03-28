@@ -69,7 +69,8 @@ namespace PerfumeryShop.WindowsApp.Windows
                     UserId = LoginWindow.CurrentUser.Id,
                     ProductId = _product.Id,
                     OrderDate = DateTime.Now,
-                    Status = "Новая"
+                    Status = "Новая",
+                    Comment = tbComment.Text.Trim()
                 };
 
                 App.context.Orders.Add(newOrder);

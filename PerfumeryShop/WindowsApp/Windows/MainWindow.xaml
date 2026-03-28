@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PerfumeryShop"
         mc:Ignorable="d"
        Title="Магия флакона"
-        Height="650"
-        Width="980"
+        Height="750"
+        Width="1080"
         WindowStartupLocation="CenterScreen"
         Background="#FFF6F1">
 
@@ -142,6 +142,7 @@
                 <Button x:Name="btnFavorite" Content="В избранное" Width="130" Height="36" Margin="5" Click="btnFavorite_Click"/>
                 <Button x:Name="btnOpenFavorites" Content="Мое избранное" Width="130" Height="36" Margin="5" Click="btnOpenFavorites_Click"/>
                 <Button x:Name="btnRequest" Content="Оформить заявку" Width="150" Height="36" Margin="5" Click="btnRequest_Click"/>
+                <Button x:Name="btnMyOrders" Content="Мои заявки" Width="130" Height="36" Margin="5" Click="btnMyOrders_Click"/>
                 <Button x:Name="btnAddProduct" Content="Добавить товар" Width="135" Height="36" Margin="5" Click="btnAddProduct_Click"/>
                 <Button x:Name="btnDeleteProduct" Content="Удалить товар" Width="135" Height="36" Margin="5" Click="btnDeleteProduct_Click"/>
                 <Button x:Name="btnRequests" Content="Список заявок" Width="135" Height="36" Margin="5" Click="btnRequests_Click"/>

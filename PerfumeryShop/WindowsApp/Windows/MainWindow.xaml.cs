@@ -66,6 +66,8 @@ namespace PerfumeryShop
             {
                 btnFavorite.Visibility = Visibility.Collapsed;
                 btnOpenFavorites.Visibility = Visibility.Collapsed;
+                btnRequest.Visibility = Visibility.Collapsed;
+                btnMyOrders.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -230,7 +232,16 @@ namespace PerfumeryShop
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Окно добавления товара сделаем следующим.");
+            AddProductWindow addProductWindow = new AddProductWindow();
+            addProductWindow.Show();
+            this.Close();
+        }
+
+        private void btnMyOrders_Click(object sender, RoutedEventArgs e)
+        {
+            MyOrdersWindow myOrdersWindow = new MyOrdersWindow();
+            myOrdersWindow.Show();
+            this.Close();
         }
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
@@ -281,7 +292,9 @@ namespace PerfumeryShop
 
         private void btnRequests_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Окно списка заявок сделаем следующим.");
+            RequestsWindow requestsWindow = new RequestsWindow();
+            requestsWindow.Show();
+            this.Close();
         }
 
         private void lbProducts_SelectionChanged(object sender, SelectionChangedEventArgs e)

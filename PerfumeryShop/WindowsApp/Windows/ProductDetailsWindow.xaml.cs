@@ -15,6 +15,12 @@ namespace PerfumeryShop.WindowsApp.Windows
             InitializeComponent();
             _product = product;
             LoadProductInfo();
+
+            if (LoginWindow.CurrentUser != null && LoginWindow.CurrentUser.Role == "Admin")
+            {
+                btnOrder.Visibility = Visibility.Collapsed;
+                btnFavorite.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void LoadProductInfo()
@@ -72,5 +78,7 @@ namespace PerfumeryShop.WindowsApp.Windows
         {
             this.Close();
         }
+
+
     }
 }
