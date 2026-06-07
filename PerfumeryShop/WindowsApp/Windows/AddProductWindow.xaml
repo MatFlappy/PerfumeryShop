@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PerfumeryShop.WindowsApp.Windows"
         mc:Ignorable="d"
        Title="Добавление товара"
-        Height="600"
+        Height="850"
         Width="550"
         WindowStartupLocation="CenterScreen"
         Background="#FFF6F1"
@@ -55,7 +55,7 @@
                 </Border>
 
                 <Button Content="Показать превью"
-                        Width="130"
+                        Width="230"
                         Height="34"
                         Margin="0,10,0,0"
                         Click="Preview_Click"/>

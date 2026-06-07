@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PerfumeryShop.WindowsApp.Windows"
         mc:Ignorable="d"
        Title="Оформление заявки"
-        Height="420"
-        Width="600"
+        Height="520"
+        Width="800"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#FFF6F1">
@@ -56,9 +56,7 @@
                              TextWrapping="Wrap"
                              AcceptsReturn="True"/>
 
-                    <TextBlock Text="После оформления заявка появится у администратора."
-                               Foreground="Gray"
-                               TextWrapping="Wrap"/>
+                   
                 </StackPanel>
             </Grid>
         </Border>

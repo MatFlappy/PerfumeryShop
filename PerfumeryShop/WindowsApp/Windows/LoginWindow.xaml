@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PerfumeryShop.WindowsApp.Windows"
         mc:Ignorable="d"
         Title="Авторизация"
-        Height="470"
-        Width="820"
+        Height="530"
+        Width="870"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#FFF6F1">
@@ -21,7 +21,7 @@
         <Border Background="White" CornerRadius="20,0,0,20" Padding="25">
             <Grid>
                 <Image Stretch="UniformToFill"
-                       Source="https://images.unsplash.com/photo-1541643600914-78b084683601?fm=jpg&amp;q=80&amp;w=900"/>
+                       Source="/лого_прафюм.png"/>
                 <Border Background="#66FFFFFF" CornerRadius="16" Margin="10"/>
                 <StackPanel VerticalAlignment="Bottom" Margin="15">
                     <TextBlock Text="Магия флакона"

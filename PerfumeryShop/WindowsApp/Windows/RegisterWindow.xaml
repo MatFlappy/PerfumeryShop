@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PerfumeryShop.WindowsApp.Windows"
         mc:Ignorable="d"
         Title="Регистрация"
-        Height="520"
-        Width="820"
+        Height="570"
+        Width="870"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize"
         Background="#FFF6F1">

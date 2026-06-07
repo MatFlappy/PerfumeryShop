@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:PerfumeryShop"
         mc:Ignorable="d"
        Title="Магия флакона"
-        Height="750"
-        Width="1080"
+        Height="850"
+        Width="1340"
         WindowStartupLocation="CenterScreen"
         Background="#FFF6F1">
 
